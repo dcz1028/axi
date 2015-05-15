@@ -1,0 +1,409 @@
+title = "Checklist"
+url = "/checklist"
+layout = "default"
+hidden = "0"
+==
+<?
+function onHandleForm()
+{
+    $this['test'] = post('systems');    
+}
+?>
+==
+<link href="{{ [
+            'assets/less/pages/all.less'
+        ]|theme }}" rel="stylesheet">
+
+<div class="jumbotron">
+    <h1>School is out!</h1>
+    <p>Now is the time to take inventory. Let us know what you need now, so you can relax all summer!</p>
+    <p>What'll it be then...  {{ test }}</p>
+</div>
+
+<div class="container form-group" style="width: 60%; ">
+{{ form_open({ request: 'onHandleForm' }) }}
+    <fieldset><legend><strong>End of the School Year Checklist</strong></legend></fieldset>
+    <table class="" style="width:100%; margin 0 auto;">
+        <!-- Form for systems -->
+        <tr>
+            <td>
+                <table style="width: 90%; margin: 0 auto;" colspan="4">
+                    <tr><th colspan="4">Promethean Systems</th></tr>
+                    <tr><td class="spacer" colspan="4"></td></tr>
+                    <tr><th colspan="4">Check the system for your classroom. You should only have one system.</th></tr>
+                    <tr><td class="spacer" colspan="4"></td></tr>
+                    <tr><td class="spacer" colspan="4"></td></tr>
+                    <tr>
+                        <th colspan="2">Version 1<hr></th>
+                        <th colspan="2">Version 2<hr></th>
+                    </tr>
+                    <tr>
+                        <td colspan="1">
+                            <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
+                            <label><input type="radio" name="systems" value="Board v1">Board</label>
+                        </td>
+                        <td colspan="1">
+                            <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
+                            <label><input type="radio" name="systems" value="Adjustable v1">Adjustable</label>
+                        </td>
+                        <td colspan="1">
+                            <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
+                            <label><input type="radio" name="systems" value="Fixed v2">Fixed</label>
+                        </td>
+                        <td colspan="1">
+                            <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
+                            <label><input type="radio"  name="systems" value="Adjustable v2">Adjustable</label>
+                        </td>
+                    </tr>
+                    <tr><td class="spacer" colspan="4"></td></tr>
+                    <tr><td class="spacer" colspan="4"></td></tr>
+                    <tr>
+                        <th colspan="1"></th>
+                        <th colspan="2">Version 3<hr></th>
+                    </tr>
+                    <tr>
+                        <td colspan="1"></td>
+                        <td colspan="1">
+                            <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
+                            <label><input type="radio" name="systems" value="Fixed v3">Fixed</label>
+                        </td>
+                        <td colspan="1">
+                            <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
+                            <label><input type="radio" name="systems" value="Adjustable v3">Adjustable</label>
+                        </td>
+                    </tr>
+                    <tr><td class="spacer" colspan="4"></td></tr>
+                    <tr><td class="spacer" colspan="4"></td></tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table colspan="5" style="width: 90%; margin: 0 auto;">
+                    <tr>
+                        <th colspan="4">Version 4<hr></th>
+                        <th colspan="1">Mobile System<hr></th>
+                    </tr>
+                    <tr colspan="4">
+                        <th colspan="2">Fixed System</th>
+                        <th colspan="2">Adjustable System</th>
+                    </tr>
+                    <tr>
+                        <td colspan="1">
+                            <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
+                            <label><input type="radio" name="systems" value="Fixed ST v4">ST</label>
+                        </td>
+                        <td colspan="1">
+                            <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
+                            <label><input type="radio" name="systems" value="Fixed EST v4">EST</label>
+                        </td>
+                        <td colspan="1">
+                            <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
+                            <label><input type="radio" name="systems" value="Adjustable ST v4">ST</label>
+                        </td>
+                        <td colspan="1">
+                            <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
+                            <label><input type="radio" name="systems" value="Adjustable EST v4">EST</label>
+                        </td>
+                        <td colspan="1">
+                            <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
+                            <label><input type="radio" name="systems" value="mobile"></label>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr><td class="spacer" colspan="6"></td></tr>
+        <tr><td class="spacer" colspan="6"></td></tr>
+        <!-- Form for projectors -->
+        <tr>
+            <td>
+                <table colspan="6" style="width: 90%; margin: 0 auto;">
+                    <tr><th colspan="6">Projectors</th></tr>
+                    <tr><td class="spacer" colspan="6"></td></tr>
+                    <tr><th colspan="6">Check the projector for your classroom. You should only have one projector.</th></tr>
+                    <tr><td class="spacer" colspan="6"></td></tr>
+                    <tr><td class="spacer" colspan="6"></td></tr>
+                    <tr>
+                        <td colspan="6">
+                            <table colspan="2" style="width: 100%; margin: 0 auto;">
+                                <tr>
+                                    <th colspan="1">PRM 20, 10 or XE40<hr></th>
+                                    <th colspan="1">PRM 30<hr></th>
+                                </tr>
+                                <tr>
+                                    <td colspan="1">
+                                        <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
+                                        <label><input type="radio" name="projectors" value="prm10_20"></label>
+                                    </td>
+                                    <td colspan="1">
+                                        <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
+                                        <label><input type="radio" name="projectors" value="prm30"></label>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr><td class="spacer" colspan="6"></td></tr>
+                    <tr><td class="spacer" colspan="6"></td></tr>
+                    <tr>
+                        <th colspan="2">PRM 35<hr></th>
+                        <th colspan="2">EST<hr></th>
+                        <th colspan="2">Ceiling Mount<hr></th>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
+                            <label><input type="radio" name="projectors" value="prm35"></label>
+                        </td>
+                        <td colspan="2">
+                            <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
+                            <label><input type="radio" name="projectors" value="est-proj"></label>
+                        </td>
+                        <td colspan="2">
+                            <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
+                            <label><input type="radio" name="projectors" value="ceiling_mount"></label>
+                        </td>
+                    </tr>
+                    <tr><td class="spacer" colspan="6"></td></tr>
+                    <tr><td class="spacer" colspan="6"></td></tr>
+                    <tr>
+                        <td colspan="6">
+                            <label >If your projector is not listed, please put it here:</label>
+                            <textarea class="form-control" name="other_projector" rows="3" ></textarea>
+                        </td>
+                    </tr>
+                    <tr><td class="spacer" colspan="6"></td></tr>
+                    <tr><td class="spacer" colspan="6"></td></tr>
+                    <tr>
+                        <td colspan="6">
+                            <table colspan="4" class="table-standard">
+                                <tr>
+                                    <th colspan="4">Projector Status</th>
+                                </tr>
+                                <tr>
+                                    <th colspan="2"></th>
+                                    <th colspan="1">Yes</th>
+                                    <th colspan="1">No</th>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">Working?</td>
+                                    <td colspan="1"><input type="radio" name="projector_working" value="yes"></td>
+                                    <td colspan="1"><input type="radio" name="projector_working" value="no"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">Have remote?</td>
+                                    <td colspan="1"><input type="radio" name="remote" value="yes"></td>
+                                    <td colspan="1"><input type="radio" name="remote" value="no"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">Lamp good?</td>
+                                    <td colspan="1"><input type="radio" name="good_lamp" value="yes"></td>
+                                    <td colspan="1"><input type="radio" name="good_lamp" value="no"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">Lamp Hours: </td>
+                                    <td colspan="4"><input type="text" style="width: 75%; margin: 0 auto;"></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr><td class="spacer" colspan="6"></td></tr>
+                    <tr><td class="spacer" colspan="6"></td></tr>
+                    <!-- Form for pens -->
+                    <tr>
+                        <td colspan="6" >
+                            <table colspan="4" class="table-standard" style="width: 100%;" >
+                                <tr><th colspan="4">ActivPens<hr /></th></tr>
+                                <tr><td class="spacer" colspan="4"></td></tr>
+                                <tr>
+                                    <th colspan="1"></th>
+                                    <th colspan="1">ActivPen</th>
+                                    <th colspan="1">ActivPen-Teacher</th>
+                                    <th colspan="1">ActivPen-Student</th>
+                                </tr>
+                                <tr>
+                                    <td colspan="1"></td>
+                                    <td colspan="1">
+                                        <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
+                                        <label><input type="radio" name="pens" value="pen_v1_v2">Versions 1 or 2</label>
+                                    </td>
+                                    <td colspan="1">
+                                        <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
+                                        <label><input type="radio" name="pens" value="pen_teacher">Versions 3 or 4</label>
+                                    </td>
+                                    <td colspan="1">
+                                        <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
+                                        <label><input type="radio" name="pens" value="pen_student">Versions 3 or 4</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1">Quantity</td>
+                                    <td colspan="1"><input type="text" name="pen_v1_v2_qty" style=" width: 60%;"></td>
+                                    <td colspan="1"><input type="text" name="pen_teacher_qty" style=" width: 60%;"></td>
+                                    <td colspan="1"><input type="text" name="pen_student_qty" style=" width: 60%;"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1">Working?</td>
+                                    <td colspan="1">
+                                        <label>Y<input type="radio" name="pen_v1_v2_works" value="yes"></label>&nbsp;&nbsp;&nbsp;
+                                        <label>N<input type="radio" name="pen_v1_v2_works" value="no"></label>
+                                    </td>
+                                    <td colspan="1">
+                                        <label>Y<input type="radio" name="pen_teacher_works" value="yes"></label>&nbsp;&nbsp;&nbsp;
+                                        <label>N<input type="radio" name="pen_teacher_works" value="no"></label>
+                                    </td>
+                                    <td colspan="1">
+                                        <label>Y<input type="radio" name="pen_student_works" value="yes"></label>&nbsp;&nbsp;&nbsp;
+                                        <label>N<input type="radio" name="pen_student_works" value="no"></label>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr><td class="spacer" colspan="6"></td></tr>
+                    <tr><td class="spacer" colspan="6"></td></tr>
+                    <!-- Form for cables -->
+                    <tr>
+                        <td colspan="6" >
+                            <table colspan="5" class="table-standard" style="width: 100%;" >
+                                <tr><th colspan="5">Cables<hr /></th></tr>
+                                <tr><td class="spacer" colspan="5"></td></tr>
+                                <tr>
+                                    <th colspan="1"></th>
+                                    <th colspan="1">USB</th>
+                                    <th colspan="1">VGA</th>
+                                    <th colspan="1">VCR/DVD</th>
+                                    <th colspan="1">Audio (3.5)</th>
+                                </tr>
+                                <tr>
+                                    <td colspan="1"></td>
+                                    <td colspan="1">
+                                        <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
+                                        <input type="checkbox" name="cables" value="usb">
+                                    </td>
+                                    <td colspan="1">
+                                        <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
+                                        <input type="checkbox" name="cables" value="vga">
+                                        </td>
+                                    <td colspan="1">
+                                        <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
+                                        <input type="checkbox" name="cables" value="vcr_dvd">
+                                    </td>
+                                    <td colspan="1">
+                                        <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
+                                        <input type="checkbox" name="cables" value="audio">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1">Quantity</td>
+                                    <td colspan="1"><input type="text" name="usb_qty" style=" width: 60%;"></td>
+                                    <td colspan="1"><input type="text" name="vga_qty" style=" width: 60%;"></td>
+                                    <td colspan="1"><input type="text" name="dvd_qty" style=" width: 60%;"></td>
+                                    <td colspan="1"><input type="text" name="audio_qty" style=" width: 60%;"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1">Working?</td>
+                                    <td colspan="1">
+                                        <label>Y<input type="radio" name="usb_works" value="yes"></label>&nbsp;&nbsp;&nbsp;
+                                        <label>N<input type="radio" name="usb_works" value="no"></label>
+                                    </td>
+                                    <td colspan="1">
+                                        <label>Y<input type="radio" name="vga_works" value="yes"></label>&nbsp;&nbsp;&nbsp;
+                                        <label>N<input type="radio" name="vga_works" value="no"></label>
+                                    </td>
+                                    <td colspan="1">
+                                        <label>Y<input type="radio" name="dvd_works" value="yes"></label>&nbsp;&nbsp;&nbsp;
+                                        <label>N<input type="radio" name="dvd_works" value="no"></label>
+                                    </td>
+                                    <td colspan="1">
+                                        <label>Y<input type="radio" name="audio_works" value="yes"></label>&nbsp;&nbsp;&nbsp;
+                                        <label>N<input type="radio" name="audio_works" value="no"></label>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr><td class="spacer" colspan="6"></td></tr>
+                    <tr><td class="spacer" colspan="6"></td></tr>
+                    <!-- Infusionsoft form test 
+                    <tr>
+                        <td>
+                            <form accept-charset="UTF-8" action="https://oc232.infusionsoft.com/app/form/process/31eaa62adf70b24b87b07f980914bb14" class="infusion-form" method="POST">
+    <input name="inf_form_xid" type="hidden" value="31eaa62adf70b24b87b07f980914bb14" />
+    <input name="inf_form_name" type="hidden" value="Checklist Webform" />
+    <input name="infusionsoft_version" type="hidden" value="1.41.0.42" />
+    <div class="infusion-field">
+        <label for="inf_field_FirstName">First Name *</label>
+        <input class="infusion-field-input-container" id="inf_field_FirstName" name="inf_field_FirstName" type="text" />
+    </div>
+    <div class="infusion-field">
+        <label for="inf_field_LastName">Last Name *</label>
+        <input class="infusion-field-input-container" id="inf_field_LastName" name="inf_field_LastName" type="text" />
+    </div>
+    <div class="infusion-field">
+        <label for="inf_field_Email">Email *</label>
+        <input class="infusion-field-input-container" id="inf_field_Email" name="inf_field_Email" type="text" />
+    </div>
+    <div class="infusion-field">
+        <label for="inf_custom_SchoolDistrict">School</label>
+        <input class="infusion-field-input-container" id="inf_custom_SchoolDistrict" name="inf_custom_SchoolDistrict" type="text" />
+    </div>
+    <div class="infusion-field">
+        <label for="inf_custom_District">District</label>
+        <input class="infusion-field-input-container" id="inf_custom_District" name="inf_custom_District" type="text" />
+    </div>
+    
+</form>
+-->
+                        </td>
+                    </tr>
+                    <tr><td class="spacer" colspan="6"></td></tr>
+                    <tr><td class="spacer" colspan="6"></td></tr>
+                </table>
+            </td>
+        </tr>
+        
+    </table>
+    <div class="infusion-submit">
+        <input type="submit" value="Submit" />
+    </div>
+{{ form_close() }}
+
+<!-- Infusionsoft form 
+
+<script type="text/javascript" src="https://oc232.infusionsoft.com/app/webTracking/getTrackingCode?trackingId=a6f8988f5c138d860ff8ab155fe694c2"></script>
+<form accept-charset="UTF-8" action="https://oc232.infusionsoft.com/app/form/process/31eaa62adf70b24b87b07f980914bb14" class="infusion-form" method="POST">
+    <input name="inf_form_xid" type="hidden" value="31eaa62adf70b24b87b07f980914bb14" />
+    <input name="inf_form_name" type="hidden" value="Checklist Webform" />
+    <input name="infusionsoft_version" type="hidden" value="1.41.0.42" />
+    <div class="infusion-field">
+        <label for="inf_field_FirstName">First Name *</label>
+        <input class="infusion-field-input-container" id="inf_field_FirstName" name="inf_field_FirstName" type="text" />
+    </div>
+    <div class="infusion-field">
+        <label for="inf_field_LastName">Last Name *</label>
+        <input class="infusion-field-input-container" id="inf_field_LastName" name="inf_field_LastName" type="text" />
+    </div>
+    <div class="infusion-field">
+        <label for="inf_field_Email">Email *</label>
+        <input class="infusion-field-input-container" id="inf_field_Email" name="inf_field_Email" type="text" />
+    </div>
+    <div class="infusion-field">
+        <label for="inf_custom_SchoolDistrict">School</label>
+        <input class="infusion-field-input-container" id="inf_custom_SchoolDistrict" name="inf_custom_SchoolDistrict" type="text" />
+    </div>
+    <div class="infusion-field">
+        <label for="inf_custom_District">District</label>
+        <input class="infusion-field-input-container" id="inf_custom_District" name="inf_custom_District" type="text" />
+    </div>
+    <div class="infusion-submit">
+        <input type="submit" value="Submit" />
+    </div>
+</form>
+<script type="text/javascript" src="https://oc232.infusionsoft.com/app/webTracking/getTrackingCode?trackingId=a6f8988f5c138d860ff8ab155fe694c2"></script>
+<div class="spacer"></div>
+<div class="spacer"></div>
+-->
+
+</div>
