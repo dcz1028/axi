@@ -1,9 +1,18 @@
 title = "Checklist"
 url = "/checklist"
-layout = "default"
+layout = "temp"
 hidden = "0"
 ==
-<?
+<?php
+/*extract($_POST);
+    $this['firstName'] = post('firstName');
+    $this['lastName'] = post('lastName');
+    $this['email'] = post ('email');
+    $this['school'] = post('school');
+    $this['district'] = post('district');
+*/    
+
+
 function onHandleForm()
 {
     $this['test'] = post('systems');    
@@ -17,13 +26,58 @@ function onHandleForm()
 <div class="jumbotron">
     <h1>School is out!</h1>
     <p>Now is the time to take inventory. Let us know what you need now, so you can relax all summer!</p>
-    <p>What'll it be then...  {{ test }}</p>
 </div>
 
 <div class="container form-group" style="width: 60%; ">
-{{ form_open({ request: 'onHandleForm' }) }}
+  <form accept-charset="UTF-8" action="https://oc232.infusionsoft.com/app/form/process/31eaa62adf70b24b87b07f980914bb14" class="infusion-form" method="POST">
+    <input name="inf_form_xid" type="hidden" value="31eaa62adf70b24b87b07f980914bb14" />
+    <input name="inf_form_name" type="hidden" value="Checklist Webform" />
+    <input name="infusionsoft_version" type="hidden" value="1.41.0.42" />
+{#{{ form_open({ request: 'onHandleForm' }) }}#}
     <fieldset><legend><strong>End of the School Year Checklist</strong></legend></fieldset>
     <table class="" style="width:100%; margin 0 auto;">
+        <!-- Customer info -->
+        <tr>
+            <td>
+                <table colspan="3" style="width: 90%; margin: 0 auto;" >
+                    <tr><td class="spacer" colspan="3"></td></tr>
+                    <tr>
+                        <th colspan="3">School Info</th>
+                    </tr>
+                    <tr><td class="spacer" colspan="3"></td></tr>
+                    <tr>
+                        <td colspan="1">
+                            <label>District:&nbsp;&nbsp;</label><input type="text" id="inf_custom_District" name="inf_custom_District" >
+                        </td>
+                        <td colspan="1">
+                            <label>School:&nbsp;&nbsp;</label><input type="text" id="inf_custom_SchoolDistrict" name="inf_custom_SchoolDistrict" >
+                        </td>
+                        <td colspan="1">
+                            <label>Room #:&nbsp;&nbsp;</label><input type="text" id="inf_custom_Roomnumber" name="inf_custom_Roomnumber" >
+                        </td>
+                    </tr>
+                    <tr><td class="spacer" colspan="3"></td></tr>
+                    <tr><td class="spacer" colspan="3"></td></tr>
+                    <tr>
+                        <th colspan="3">Your Info</th>
+                    </tr>
+                    <tr><td class="spacer" colspan="3"></td></tr>
+                    <tr>
+                        <td colspan="1">
+                            <label>First Name:&nbsp;&nbsp;</label><input type="text" id="inf_field_FirstName" name="inf_field_FirstName" >
+                        </td>
+                        <td colspan="1">
+                            <label>Last Name:&nbsp;&nbsp;</label><input type="text" id="inf_field_LastName" name="inf_field_LastName" >
+                        </td>
+                        <td colspan="1">
+                            <label>Email:&nbsp;&nbsp;</label><input type="text" id="inf_field_Email" name="inf_field_Email" >
+                        </td>
+                    </tr>
+                    <tr><td class="spacer" colspan="3"></td></tr>
+                    <tr><td class="spacer" colspan="3"></td></tr>
+                </table>
+            </td>
+        </tr>
         <!-- Form for systems -->
         <tr>
             <td>
@@ -39,20 +93,24 @@ function onHandleForm()
                     </tr>
                     <tr>
                         <td colspan="1">
-                            <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
-                            <label><input type="radio" name="systems" value="Board v1">Board</label>
+                            <img src="{{ 'assets/images/v1fixed.png'|theme }}" class="product-img" /><br/>
+                            <input id="inf_custom_ABSystem_v1 board" name="inf_custom_ABSystem" type="radio" value="v1 board">
+                            <label for="inf_custom_ABSystem_v1 board" >Board</label>
                         </td>
                         <td colspan="1">
-                            <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
-                            <label><input type="radio" name="systems" value="Adjustable v1">Adjustable</label>
+                            <img src="{{ 'assets/images/v1adjustable.png'|theme }}" class="product-img" /><br/>
+                            <input id="inf_custom_ABSystem_v1 adjustable" name="inf_custom_ABSystem" type="radio" value="v1 adjustable">
+                            <label for="inf_custom_ABSystem_v1 adjustable" >Adjustable</label>
                         </td>
                         <td colspan="1">
-                            <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
-                            <label><input type="radio" name="systems" value="Fixed v2">Fixed</label>
+                            <img src="{{ 'assets/images/v2fixed.png'|theme }}" class="product-img" /><br/>
+                            <input id="inf_custom_ABSystem_v2 fixed" name="inf_custom_ABSystem" type="radio" value="v2 fixed">
+                            <label for="inf_custom_ABSystem_v2 fixed">Fixed</label>
                         </td>
                         <td colspan="1">
-                            <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
-                            <label><input type="radio"  name="systems" value="Adjustable v2">Adjustable</label>
+                            <img src="{{ 'assets/images/v2adjust.png'|theme }}" class="product-img" /><br/>
+                            <input id="inf_custom_ABSystem_v2 adjustable" name="inf_custom_ABSystem" type="radio" value="v2 adjustable">
+                            <label for="inf_custom_ABSystem_v2 adjustable">Adjustable</label>
                         </td>
                     </tr>
                     <tr><td class="spacer" colspan="4"></td></tr>
@@ -64,12 +122,14 @@ function onHandleForm()
                     <tr>
                         <td colspan="1"></td>
                         <td colspan="1">
-                            <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
-                            <label><input type="radio" name="systems" value="Fixed v3">Fixed</label>
+                            <img src="{{ 'assets/images/v3fixed.png'|theme }}" class="product-img" /><br/>
+                            <input id="inf_custom_ABSystem_v3 fixed" name="inf_custom_ABSystem" type="radio" value="v3 fixed">
+                            <label for="inf_custom_ABSystem_v3 fixed" >Fixed</label>
                         </td>
                         <td colspan="1">
-                            <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
-                            <label><input type="radio" name="systems" value="Adjustable v3">Adjustable</label>
+                            <img src="{{ 'assets/images/v3adjust.png'|theme }}" class="product-img" /><br/>
+                            <input id="inf_custom_ABSystem_v3 adjustable" name="inf_custom_ABSystem" type="radio" value="v3 adjustable">
+                            <label for="inf_custom_ABSystem_v3 adjustable">Adjustable</label>
                         </td>
                     </tr>
                     <tr><td class="spacer" colspan="4"></td></tr>
@@ -90,24 +150,28 @@ function onHandleForm()
                     </tr>
                     <tr>
                         <td colspan="1">
-                            <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
-                            <label><input type="radio" name="systems" value="Fixed ST v4">ST</label>
+                            <img src="{{ 'assets/images/v4fixedst.png'|theme }}" class="product-img" /><br/>
+                            <input id="inf_custom_ABSystem_v4 fixed st" name="inf_custom_ABSystem" type="radio" value="v4 fixed st" />
+                            <label for="inf_custom_ABSystem_v4 fixed st">ST</label>
                         </td>
                         <td colspan="1">
-                            <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
-                            <label><input type="radio" name="systems" value="Fixed EST v4">EST</label>
+                            <img src="{{ 'assets/images/v4fixedest.png'|theme }}" class="product-img" /><br/>
+                            <input id="inf_custom_ABSystem_v4 fixed est" name="inf_custom_ABSystem" type="radio" value="v4 fixed est" />
+                            <label for="inf_custom_ABSystem_v4 fixed est" >EST</label>
                         </td>
                         <td colspan="1">
-                            <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
-                            <label><input type="radio" name="systems" value="Adjustable ST v4">ST</label>
+                            <img src="{{ 'assets/images/v4adjustst.png'|theme }}" class="product-img" /><br/>
+                            <input id="inf_custom_ABSystem_v4 adjustable st" name="inf_custom_ABSystem" type="radio" value="v4 adjustable st" />
+                            <label for="inf_custom_ABSystem_v4 adjustable st" >ST</label>
                         </td>
                         <td colspan="1">
-                            <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
-                            <label><input type="radio" name="systems" value="Adjustable EST v4">EST</label>
+                            <img src="{{ 'assets/images/v4adjustest.png'|theme }}" class="product-img" /><br/>
+                            <input id="inf_custom_ABSystem_v4 adjustable est" name="inf_custom_ABSystem" type="radio" value="v4 adjustable est" />
+                            <label for="inf_custom_ABSystem_v4 adjustable est">EST</label>
                         </td>
                         <td colspan="1">
-                            <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
-                            <label><input type="radio" name="systems" value="mobile"></label>
+                            <img src="{{ 'assets/images/mobile.png'|theme }}" class="product-img"" /><br/>
+                            <input id="inf_custom_ABSystem_mobile" name="inf_custom_ABSystem" type="radio" value="mobile" />
                         </td>
                     </tr>
                 </table>
@@ -126,19 +190,24 @@ function onHandleForm()
                     <tr><td class="spacer" colspan="6"></td></tr>
                     <tr>
                         <td colspan="6">
-                            <table colspan="2" style="width: 100%; margin: 0 auto;">
+                            <table colspan="6" style="width: 100%; margin: 0 auto;">
                                 <tr>
-                                    <th colspan="1">PRM 20, 10 or XE40<hr></th>
-                                    <th colspan="1">PRM 30<hr></th>
+                                    <th colspan="2">PRM 20, 10 or XE40<hr></th>
+                                    <th colspan="2">PRM 30<hr></th>
+                                    <th colspan="2">PRM 35<hr></th>
                                 </tr>
                                 <tr>
-                                    <td colspan="1">
-                                        <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
-                                        <label><input type="radio" name="projectors" value="prm10_20"></label>
+                                    <td colspan="2">
+                                        <img src="{{ 'assets/images/prm20.png'|theme }}" class="product-img" /><br/>
+                                        <input id="inf_custom_Projector_PRM 10 20 or xe40" name="inf_custom_Projector" type="radio" value="PRM 10 20 or xe40" />
                                     </td>
-                                    <td colspan="1">
-                                        <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
-                                        <label><input type="radio" name="projectors" value="prm30"></label>
+                                    <td colspan="2">
+                                        <img src="{{ 'assets/images/prm30.png'|theme }}" class="product-img" /><br/>
+                                        <input id="inf_custom_Projector_PRM 30" name="inf_custom_Projector" type="radio" value="PRM 30" />
+                                    </td>
+                                    <td colspan="2">
+                                        <img src="{{ 'assets/images/prm35.png'|theme }}" class="product-img" /><br/>
+                                        <input id="inf_custom_Projector_PRM 35" name="inf_custom_Projector" type="radio" value="PRM 35" />
                                     </td>
                                 </tr>
                             </table>
@@ -147,30 +216,30 @@ function onHandleForm()
                     <tr><td class="spacer" colspan="6"></td></tr>
                     <tr><td class="spacer" colspan="6"></td></tr>
                     <tr>
-                        <th colspan="2">PRM 35<hr></th>
                         <th colspan="2">EST<hr></th>
+                        <th colspan="2">AXI/Boxlight<hr></th>
                         <th colspan="2">Ceiling Mount<hr></th>
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
-                            <label><input type="radio" name="projectors" value="prm35"></label>
+                            <img src="{{ 'assets/images/est.png'|theme }}" class="product-img" /><br/>
+                            <input id="inf_custom_Projector_EST" name="inf_custom_Projector" type="radio" value="EST" />
                         </td>
                         <td colspan="2">
-                            <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
-                            <label><input type="radio" name="projectors" value="est-proj"></label>
+                            <img src="{{ 'assets/images/bl-proj.png'|theme }}" class="product-img" /><br/>
+                            <input id="inf_custom_Projector_AXI/Boxlight" name="inf_custom_Projector" type="radio" value="AXI/Boxlight" />
                         </td>
                         <td colspan="2">
-                            <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
-                            <label><input type="radio" name="projectors" value="ceiling_mount"></label>
+                            <img src="{{ 'assets/images/mount.png'|theme }}" class="product-img" /><br/>
+                            <input id="inf_custom_Projector_Ceiling Mount" name="inf_custom_Projector" type="radio" value="Ceiling Mount" />
                         </td>
                     </tr>
                     <tr><td class="spacer" colspan="6"></td></tr>
                     <tr><td class="spacer" colspan="6"></td></tr>
                     <tr>
                         <td colspan="6">
-                            <label >If your projector is not listed, please put it here:</label>
-                            <textarea class="form-control" name="other_projector" rows="3" ></textarea>
+                            <label >If your projector is not listed, please let us know what you have:</label>
+                            <textarea class="form-control" id="inf_custom_OtherProjector" name="inf_custom_OtherProjector" rows="3" ></textarea>
                         </td>
                     </tr>
                     <tr><td class="spacer" colspan="6"></td></tr>
@@ -188,26 +257,28 @@ function onHandleForm()
                                 </tr>
                                 <tr>
                                     <td colspan="2">Working?</td>
-                                    <td colspan="1"><input type="radio" name="projector_working" value="yes"></td>
-                                    <td colspan="1"><input type="radio" name="projector_working" value="no"></td>
+                                    <td colspan="1"><input id="inf_custom_Projectorworks0_Yes" name="inf_custom_Projectorworks0" type="radio" value="Yes" /></td>
+                                    <td colspan="1"><input id="inf_custom_Projectorworks0_No" name="inf_custom_Projectorworks0" type="radio" value="No" /></td>
                                 </tr>
                                 <tr>
                                     <td colspan="2">Have remote?</td>
-                                    <td colspan="1"><input type="radio" name="remote" value="yes"></td>
-                                    <td colspan="1"><input type="radio" name="remote" value="no"></td>
+                                    <td colspan="1"><input id="inf_custom_HaveRemote0_Yes" name="inf_custom_HaveRemote0" type="radio" value="Yes" /></td>
+                                    <td colspan="1"><input id="inf_custom_HaveRemote0_No" name="inf_custom_HaveRemote0" type="radio" value="No" /></td>
                                 </tr>
                                 <tr>
                                     <td colspan="2">Lamp good?</td>
-                                    <td colspan="1"><input type="radio" name="good_lamp" value="yes"></td>
-                                    <td colspan="1"><input type="radio" name="good_lamp" value="no"></td>
+                                    <td colspan="1"><input id="inf_custom_LampGood0_Yes" name="inf_custom_LampGood0" type="radio" value="Yes" /></td>
+                                    <td colspan="1"><input id="inf_custom_LampGood0_No" name="inf_custom_LampGood0" type="radio" value="No" /></td>
                                 </tr>
                                 <tr>
                                     <td colspan="2">Lamp Hours: </td>
-                                    <td colspan="4"><input type="text" style="width: 75%; margin: 0 auto;"></td>
+                                    <td colspan="4"><input id="inf_custom_LampHours" name="inf_custom_LampHours" type="text" style="width: 75%; margin: 0 auto;" /></td>
                                 </tr>
                             </table>
                         </td>
                     </tr>
+                    <tr><td class="spacer" colspan="6"></td></tr>
+                    <tr><td class="spacer" colspan="6"></td></tr>
                     <tr><td class="spacer" colspan="6"></td></tr>
                     <tr><td class="spacer" colspan="6"></td></tr>
                     <!-- Form for pens -->
@@ -223,44 +294,54 @@ function onHandleForm()
                                     <th colspan="1">ActivPen-Student</th>
                                 </tr>
                                 <tr>
-                                    <td colspan="1"></td>
+                                    <td colspan="1" ></td>
                                     <td colspan="1">
-                                        <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
-                                        <label><input type="radio" name="pens" value="pen_v1_v2">Versions 1 or 2</label>
+                                        <img src="{{ 'assets/images/pen3.png'|theme }}" class="product-img" /><br/>
+                                        <input id="inf_custom_ActivPen3" name="inf_custom_ActivPen3" type="radio" value="ActivPen3" />
+                                        <label for="inf_custom_ActivPen3 ">Versions 1 or 2</label>
                                     </td>
                                     <td colspan="1">
-                                        <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
-                                        <label><input type="radio" name="pens" value="pen_teacher">Versions 3 or 4</label>
+                                        <img src="{{ 'assets/images/pen4t.png'|theme }}" class="product-img" /><br/>
+                                        <input id="inf_custom_ActivPen4T" name="inf_custom_ActivPen4T" type="radio" value="ActivPen4 Teacher" />
+                                        <label for="inf_custom_ActivPen4T">Versions 3 or 4</label>
                                     </td>
                                     <td colspan="1">
-                                        <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
-                                        <label><input type="radio" name="pens" value="pen_student">Versions 3 or 4</label>
+                                        <img src="{{ 'assets/images/pen4s.png'|theme }}" class="product-img" /><br/>
+                                        <input id="inf_custom_ActivPen4S" name="inf_custom_ActivPen4S" type="radio" value="ActivPen4 Student" />
+                                        <label for="inf_custom_ActivPen4S">Versions 3 or 4</label>
                                     </td>
-                                </tr>
-                                <tr>
+                                    <tr>
                                     <td colspan="1">Quantity</td>
-                                    <td colspan="1"><input type="text" name="pen_v1_v2_qty" style=" width: 60%;"></td>
-                                    <td colspan="1"><input type="text" name="pen_teacher_qty" style=" width: 60%;"></td>
-                                    <td colspan="1"><input type="text" name="pen_student_qty" style=" width: 60%;"></td>
+                                    <td colspan="1"><input id="inf_custom_PenQuantity" name="inf_custom_PenQuantity" type="text" style=" width: 60%;" /></td>
+                                    <td colspan="1"><input id="inf_custom_Pen4TQuantity" name="inf_custom_Pen4TQuantity" type="text" style=" width: 60%;" /></td>
+                                    <td colspan="1"><input id="inf_custom_Pen4SQuantity" name="inf_custom_Pen4SQuantity" type="text" style=" width: 60%;" /></td>
                                 </tr>
                                 <tr>
                                     <td colspan="1">Working?</td>
                                     <td colspan="1">
-                                        <label>Y<input type="radio" name="pen_v1_v2_works" value="yes"></label>&nbsp;&nbsp;&nbsp;
-                                        <label>N<input type="radio" name="pen_v1_v2_works" value="no"></label>
+                                        <input id="inf_custom_Penworking0_Yes" name="inf_custom_Penworking0" type="radio" value="Yes" />
+                                        <label for="inf_custom_Penworking0_Yes">Yes</label>&nbsp;&nbsp;&nbsp;
+                                        <input id="inf_custom_Penworking0_No" name="inf_custom_Penworking0" type="radio" value="No" />
+                                        <label for="inf_custom_Penworking0_No">No</label>
                                     </td>
                                     <td colspan="1">
-                                        <label>Y<input type="radio" name="pen_teacher_works" value="yes"></label>&nbsp;&nbsp;&nbsp;
-                                        <label>N<input type="radio" name="pen_teacher_works" value="no"></label>
+                                        <input id="inf_custom_Pen4Tworking_Yes" name="inf_custom_Pen4Tworking" type="radio" value="Yes" />
+                                        <label for="inf_custom_Pen4Tworking_Yes">Yes</label>&nbsp;&nbsp;&nbsp;
+                                        <input id="inf_custom_Pen4Tworking_No" name="inf_custom_Pen4Tworking" type="radio" value="No" />
+                                        <label for="inf_custom_Pen4Tworking_No">No</label>
                                     </td>
                                     <td colspan="1">
-                                        <label>Y<input type="radio" name="pen_student_works" value="yes"></label>&nbsp;&nbsp;&nbsp;
-                                        <label>N<input type="radio" name="pen_student_works" value="no"></label>
+                                        <input id="inf_custom_Pen4Sworking_Yes" name="inf_custom_Pen4Sworking" type="radio" value="Yes" />
+                                        <label for="inf_custom_Pen4Sworking_Yes">Yes</label>&nbsp;&nbsp;&nbsp;
+                                        <input id="inf_custom_Pen4Sworking_No" name="inf_custom_Pen4Sworking" type="radio" value="No" />
+                                        <label for="inf_custom_Pen4Sworking_No">No</label>
                                     </td>
                                 </tr>
                             </table>
                         </td>
                     </tr>
+                    <tr><td class="spacer" colspan="6"></td></tr>
+                    <tr><td class="spacer" colspan="6"></td></tr>
                     <tr><td class="spacer" colspan="6"></td></tr>
                     <tr><td class="spacer" colspan="6"></td></tr>
                     <!-- Form for cables -->
@@ -279,46 +360,54 @@ function onHandleForm()
                                 <tr>
                                     <td colspan="1"></td>
                                     <td colspan="1">
-                                        <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
-                                        <input type="checkbox" name="cables" value="usb">
+                                        <img src="{{ 'assets/images/usb.png'|theme }}" class="product-img" /><br/>
+                                        <input type="checkbox" id="inf_custom_USBCables" name="inf_custom_USBCables" value="True" />
                                     </td>
                                     <td colspan="1">
-                                        <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
-                                        <input type="checkbox" name="cables" value="vga">
+                                        <img src="{{ 'assets/images/vga.png'|theme }}" class="product-img" /><br/>
+                                        <input type="checkbox" id="inf_custom_VGACables" name="inf_custom_VGACables" value="True">
                                         </td>
                                     <td colspan="1">
-                                        <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
-                                        <input type="checkbox" name="cables" value="vcr_dvd">
+                                        <img src="{{ 'assets/images/rca.png'|theme }}" class="product-img" /><br/>
+                                        <input type="checkbox" id="inf_custom_VCRDVD" name="inf_custom_VCRDVD" value="True" />
                                     </td>
                                     <td colspan="1">
-                                        <img src="{{ 'assets/images/demo.jpg'|theme }}" style="width: 100px;" /><br/>
-                                        <input type="checkbox" name="cables" value="audio">
+                                        <img src="{{ 'assets/images/audio.png'|theme }}" class="product-img" /><br/>
+                                        <input type="checkbox" id="inf_custom_Audio35Cable" name="inf_custom_Audio35Cable" value="True" />
                                     </td>
                                 </tr>
                                 <tr>
                                     <td colspan="1">Quantity</td>
-                                    <td colspan="1"><input type="text" name="usb_qty" style=" width: 60%;"></td>
-                                    <td colspan="1"><input type="text" name="vga_qty" style=" width: 60%;"></td>
-                                    <td colspan="1"><input type="text" name="dvd_qty" style=" width: 60%;"></td>
-                                    <td colspan="1"><input type="text" name="audio_qty" style=" width: 60%;"></td>
+                                    <td colspan="1"><input id="inf_custom_USBQuantity" name="inf_custom_USBQuantity" type="text" style=" width: 60%;"/></td>
+                                    <td colspan="1"><input id="inf_custom_VGAQty" name="inf_custom_VGAQty" type="text" style=" width: 60%;" /></td>
+                                    <td colspan="1"><input id="inf_custom_VCRDVDQty" name="inf_custom_VCRDVDQty" type="text" style=" width: 60%;" /></td>
+                                    <td colspan="1"><input id="inf_custom_Audio35Cable" name="inf_custom_Audio35Cable" type="text" style=" width: 60%;" /></td>
                                 </tr>
                                 <tr>
                                     <td colspan="1">Working?</td>
                                     <td colspan="1">
-                                        <label>Y<input type="radio" name="usb_works" value="yes"></label>&nbsp;&nbsp;&nbsp;
-                                        <label>N<input type="radio" name="usb_works" value="no"></label>
+                                        <input id="inf_custom_USBworks0_Yes" name="inf_custom_USBworks0" type="radio" value="Yes" />
+                                        <label for="inf_custom_USBworks0_Yes">Yes</label>&nbsp;&nbsp;&nbsp;
+                                        <input id="inf_custom_USBworks0_No" name="inf_custom_USBworks0" type="radio" value="No" />
+                                        <label for="inf_custom_USBworks0_No">No</label>
                                     </td>
                                     <td colspan="1">
-                                        <label>Y<input type="radio" name="vga_works" value="yes"></label>&nbsp;&nbsp;&nbsp;
-                                        <label>N<input type="radio" name="vga_works" value="no"></label>
+                                        <input id="inf_custom_VGAworks0_Yes" name="inf_custom_VGAworks0" type="radio" value="Yes" />
+                                        <label for="inf_custom_VGAworks0_Yes">Yes</label>&nbsp;&nbsp;&nbsp;
+                                        <input id="inf_custom_VGAworks0_No" name="inf_custom_VGAworks0" type="radio" value="No" />
+                                        <label for="inf_custom_VGAworks0_No">No</label>
                                     </td>
                                     <td colspan="1">
-                                        <label>Y<input type="radio" name="dvd_works" value="yes"></label>&nbsp;&nbsp;&nbsp;
-                                        <label>N<input type="radio" name="dvd_works" value="no"></label>
+                                        <input id="inf_custom_VCRDVDworks1_Yes" name="inf_custom_VCRDVDworks1" type="radio" value="Yes" />
+                                        <label for="inf_custom_VCRDVDworks1_Yes">Yes</label>&nbsp;&nbsp;&nbsp;
+                                        <input id="inf_custom_VCRDVDworks1_No" name="inf_custom_VCRDVDworks1" type="radio" value="No" />
+                                        <label for="inf_custom_VCRDVDworks1_No">No</label>
                                     </td>
                                     <td colspan="1">
-                                        <label>Y<input type="radio" name="audio_works" value="yes"></label>&nbsp;&nbsp;&nbsp;
-                                        <label>N<input type="radio" name="audio_works" value="no"></label>
+                                        <input id="inf_custom_Audioworks0_Yes" name="inf_custom_Audioworks0" type="radio" value="Yes" />
+                                        <label for="inf_custom_Audioworks0_Yes">Yes</label>&nbsp;&nbsp;&nbsp;
+                                        <input id="inf_custom_Audioworks0_No" name="inf_custom_Audioworks0" type="radio" value="No" />
+                                        <label for="inf_custom_Audioworks0_No">No</label>
                                     </td>
                                 </tr>
                             </table>
@@ -326,84 +415,168 @@ function onHandleForm()
                     </tr>
                     <tr><td class="spacer" colspan="6"></td></tr>
                     <tr><td class="spacer" colspan="6"></td></tr>
-                    <!-- Infusionsoft form test 
+                    <tr><td class="spacer" colspan="6"></td></tr>
+                    <tr><td class="spacer" colspan="6"></td></tr>
+                    <!-- Form for Expressions and Votes -->
                     <tr>
-                        <td>
-                            <form accept-charset="UTF-8" action="https://oc232.infusionsoft.com/app/form/process/31eaa62adf70b24b87b07f980914bb14" class="infusion-form" method="POST">
-    <input name="inf_form_xid" type="hidden" value="31eaa62adf70b24b87b07f980914bb14" />
-    <input name="inf_form_name" type="hidden" value="Checklist Webform" />
-    <input name="infusionsoft_version" type="hidden" value="1.41.0.42" />
-    <div class="infusion-field">
-        <label for="inf_field_FirstName">First Name *</label>
-        <input class="infusion-field-input-container" id="inf_field_FirstName" name="inf_field_FirstName" type="text" />
-    </div>
-    <div class="infusion-field">
-        <label for="inf_field_LastName">Last Name *</label>
-        <input class="infusion-field-input-container" id="inf_field_LastName" name="inf_field_LastName" type="text" />
-    </div>
-    <div class="infusion-field">
-        <label for="inf_field_Email">Email *</label>
-        <input class="infusion-field-input-container" id="inf_field_Email" name="inf_field_Email" type="text" />
-    </div>
-    <div class="infusion-field">
-        <label for="inf_custom_SchoolDistrict">School</label>
-        <input class="infusion-field-input-container" id="inf_custom_SchoolDistrict" name="inf_custom_SchoolDistrict" type="text" />
-    </div>
-    <div class="infusion-field">
-        <label for="inf_custom_District">District</label>
-        <input class="infusion-field-input-container" id="inf_custom_District" name="inf_custom_District" type="text" />
-    </div>
-    
-</form>
--->
+                        <td colspan="6" >
+                            <table colspan="5" class="table-standard" style="width: 100%;" >
+                                <tr><th colspan="5">ActiVotes and ActivExpressions<hr /></th></tr>
+                                <tr><td class="spacer" colspan="5"></td></tr>
+                                <tr>
+                                    <th colspan="1"></th>
+                                    <th colspan="1">ActiVote 1</th>
+                                    <th colspan="1">ActiVote 2</th>
+                                    <th colspan="1">ActivExpression 1</th>
+                                    <th colspan="1">ActivExpression 2</th>
+                                </tr>
+                                <tr>
+                                    <td colspan="1"></td>
+                                    <td colspan="1">
+                                        <img src="{{ 'assets/images/vote1.png'|theme }}" class="product-img" /><br/>
+                                        <input type="checkbox" id="inf_custom_ActiVote1" name="inf_custom_ActiVote1" value="Yes" />
+                                    </td>
+                                    <td colspan="1">
+                                        <img src="{{ 'assets/images/vote2.png'|theme }}" class="product-img" /><br/>
+                                        <input type="checkbox" id="inf_custom_ActiVote2" name="inf_custom_ActiVote2" value="Yes" />
+                                        </td>
+                                    <td colspan="1">
+                                        <img src="{{ 'assets/images/expression1.png'|theme }}" class="product-img" /><br/>
+                                        <input type="checkbox" id="inf_custom_ActivExpression1" name="inf_custom_ActivExpression1" value="Yes" />
+                                    </td>
+                                    <td colspan="1">
+                                        <img src="{{ 'assets/images/expression2.png'|theme }}" class="product-img" /><br/>
+                                        <input type="checkbox" id="inf_custom_ActivExpression2" name="inf_custom_ActivExpression2" value="Yes">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1">Quantity</td>
+                                    <td colspan="1"><input id="inf_custom_ActiVote1Qty" name="inf_custom_ActiVote1Qty" type="text" style=" width: 60%;" /></td>
+                                    <td colspan="1"><input id="inf_custom_ActiVote2Qty" name="inf_custom_ActiVote2Qty" type="text" style=" width: 60%;" /></td>
+                                    <td colspan="1"><input id="inf_custom_ActivExpression1Qty" name="inf_custom_ActivExpression1Qty" type="text" style=" width: 60%;" /></td>
+                                    <td colspan="1"><input id="inf_custom_ActivExpression2Qty" name="inf_custom_ActivExpression2Qty" type="text" style=" width: 60%;" /></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1">Working?</td>
+                                    <td colspan="1">
+                                        <input id="inf_custom_Activote1works0_Yes" name="inf_custom_Activote1works0" type="radio" value="Yes" />
+                                        <label for="inf_custom_Activote1works0_Yes">Yes</label>&nbsp;&nbsp;&nbsp;
+                                        <input id="inf_custom_Activote1works0_No" name="inf_custom_Activote1works0" type="radio" value="No" />
+                                        <label for="inf_custom_Activote1works0_No">No</label>
+                                    </td>
+                                    <td colspan="1">
+                                        <input id="inf_custom_ActiVote2works0_Yes" name="inf_custom_ActiVote2works0" type="radio" value="Yes" />
+                                        <label for="inf_custom_ActiVote2works0_Yes">Yes</label>&nbsp;&nbsp;&nbsp;
+                                        <input id="inf_custom_ActiVote2works0_No" name="inf_custom_ActiVote2works0" type="radio" value="No" />
+                                        <label for="inf_custom_ActiVote2works0_No">No</label>
+                                    </td>
+                                    <td colspan="1">
+                                        <input id="inf_custom_ActivExpression1works0_Yes" name="inf_custom_ActivExpression1works0" type="radio" value="Yes" />
+                                        <label for="inf_custom_ActivExpression1works0_Yes">Yes</label>&nbsp;&nbsp;&nbsp;
+                                        <input id="inf_custom_ActivExpression1works0_No" name="inf_custom_ActivExpression1works0" type="radio" value="No" />
+                                        <label for="inf_custom_ActivExpression1works0_No">No</label>
+                                    </td>
+                                    <td colspan="1">
+                                        <input id="inf_custom_ActivExpression2works_Yes" name="inf_custom_ActivExpression2works" type="radio" value="Yes" />
+                                        <label for="inf_custom_ActivExpression2works_Yes">Yes</label>&nbsp;&nbsp;&nbsp;
+                                        <input id="inf_custom_ActivExpression2works_No" name="inf_custom_ActivExpression2works" type="radio" value="No" />
+                                        <label for="inf_custom_ActivExpression2works_No">No</label>
+                                    </td>
+                                </tr>
+                            </table>
                         </td>
                     </tr>
+                    <tr><td class="spacer" colspan="6"></td></tr>
+                    <tr><td class="spacer" colspan="6"></td></tr>
+                    <tr><td class="spacer" colspan="6"></td></tr>
+                    <tr><td class="spacer" colspan="6"></td></tr>
+                    <!-- Form for other peripherals -->
+                    <tr>
+                        <td colspan="6" >
+                            <table colspan="4" class="table-standard" style="width: 100%;" >
+                                <tr><th colspan="4">Other Peripherals<hr /></th></tr>
+                                <tr><td class="spacer" colspan="4"></td></tr>
+                                <tr>
+                                    <th colspan="1"></th>
+                                    <th colspan="1">ActivWand</th>
+                                    <th colspan="1">ActivSlate</th>
+                                    <th colspan="1">ActiView Camera</th>
+                                </tr>
+                                <tr>
+                                    <td colspan="1"></td>
+                                    <td colspan="1">
+                                        <img src="{{ 'assets/images/wand.png'|theme }}" class="product-img" /><br/>
+                                        <input type="checkbox" id="inf_custom_ActivWand" name="inf_custom_ActivWand" value="Yes" />
+                                    </td>
+                                    <td colspan="1">
+                                        <img src="{{ 'assets/images/slate.png'|theme }}" class="product-img" /><br/>
+                                        <input type="checkbox" id="inf_custom_ActivSlate" name="inf_custom_ActivSlate" value="Yes" />
+                                    </td>
+                                    <td colspan="1">
+                                        <img src="{{ 'assets/images/view.png'|theme }}" class="product-img" /><br/>
+                                        <input type="checkbox" id="inf_custom_ActiViewCamera" name="inf_custom_ActiViewCamera" value="Yes" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1">Quantity</td>
+                                    <td colspan="1"><input id="inf_custom_ActivWandQty" name="inf_custom_ActivWandQty" type="text" style=" width: 60%;" /></td>
+                                    <td colspan="1"><input id="inf_custom_ActivSlateQty" name="inf_custom_ActivSlateQty" type="text" style=" width: 60%;" /></td>
+                                    <td colspan="1"><input id="inf_custom_ActiViewCameraQty" name="inf_custom_ActiViewCameraQty" type="text" style=" width: 60%;" /></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1">Working?</td>
+                                    <td colspan="1">
+                                        <input id="inf_custom_ActivWandworks0_Yes" name="inf_custom_ActivWandworks0" type="radio" value="Yes" />
+                                        <label for="inf_custom_ActivWandworks0_Yes">Yes</label>&nbsp;&nbsp;&nbsp;
+                                        <input id="inf_custom_ActivWandworks0_No" name="inf_custom_ActivWandworks0" type="radio" value="No" />
+                                        <label for="inf_custom_ActivWandworks0_No">No</label>
+                                    </td>
+                                    <td colspan="1">
+                                        <input id="inf_custom_ActivSlateworks0_Yes" name="inf_custom_ActivSlateworks0" type="radio" value="Yes" />
+                                        <label for="inf_custom_ActivSlateworks0_Yes">Yes</label>&nbsp;&nbsp;&nbsp;
+                                        <input id="inf_custom_ActivSlateworks0_No" name="inf_custom_ActivSlateworks0" type="radio" value="No" />
+                                        <label for="inf_custom_ActivSlateworks0_No">No</label>
+                                    </td>
+                                    <td colspan="1">
+                                        <input id="inf_custom_ActiViewCameraworks0_Yes" name="inf_custom_ActiViewCameraworks0" type="radio" value="Yes" />
+                                        <label for="inf_custom_ActiViewCameraworks0_Yes">Yes</label>&nbsp;&nbsp;&nbsp;
+                                        <input id="inf_custom_ActiViewCameraworks0_No" name="inf_custom_ActiViewCameraworks0" type="radio" value="No" />
+                                        <label for="inf_custom_ActiViewCameraworks0_No">No</label>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr><td class="spacer" colspan="6"></td></tr>
+                    <tr><td class="spacer" colspan="6"></td></tr>
+                    <tr><td class="spacer" colspan="6"></td></tr>
+                    <tr><td class="spacer" colspan="6"></td></tr>
+                    <!-- Comments -->
+                    <tr>
+                        <td colspan="6">
+                            <label >If you have any comments or if there is anything else we can do for you, just let us know!</label>
+                            <textarea class="form-control" id="inf_custom_OtherCommentsorrequests" name="inf_custom_OtherCommentsorrequests" rows="5" ></textarea>
+                        </td>
+                    </tr>
+                    <tr><td class="spacer" colspan="6"></td></tr>
+                    <tr><td class="spacer" colspan="6"></td></tr>
                     <tr><td class="spacer" colspan="6"></td></tr>
                     <tr><td class="spacer" colspan="6"></td></tr>
                 </table>
             </td>
         </tr>
-        
+        <tr>
+            <td colspan="6" >
+                <input class="btn btn-default form-control" style="width: 75%; margin: 0 auto; " type="submit" value="Submit" />
+            </td>
+        </tr>
+        <tr><td class="spacer" colspan="6"></td></tr>
+        <tr><td class="spacer" colspan="6"></td></tr>    
     </table>
-    <div class="infusion-submit">
-        <input type="submit" value="Submit" />
-    </div>
-{{ form_close() }}
+    
+{#{{ form_close() }}#}
+  </form>
+  <script type="text/javascript" src="https://oc232.infusionsoft.com/app/webTracking/getTrackingCode?trackingId=a6f8988f5c138d860ff8ab155fe694c2"></script>
 
-<!-- Infusionsoft form 
-
-<script type="text/javascript" src="https://oc232.infusionsoft.com/app/webTracking/getTrackingCode?trackingId=a6f8988f5c138d860ff8ab155fe694c2"></script>
-<form accept-charset="UTF-8" action="https://oc232.infusionsoft.com/app/form/process/31eaa62adf70b24b87b07f980914bb14" class="infusion-form" method="POST">
-    <input name="inf_form_xid" type="hidden" value="31eaa62adf70b24b87b07f980914bb14" />
-    <input name="inf_form_name" type="hidden" value="Checklist Webform" />
-    <input name="infusionsoft_version" type="hidden" value="1.41.0.42" />
-    <div class="infusion-field">
-        <label for="inf_field_FirstName">First Name *</label>
-        <input class="infusion-field-input-container" id="inf_field_FirstName" name="inf_field_FirstName" type="text" />
-    </div>
-    <div class="infusion-field">
-        <label for="inf_field_LastName">Last Name *</label>
-        <input class="infusion-field-input-container" id="inf_field_LastName" name="inf_field_LastName" type="text" />
-    </div>
-    <div class="infusion-field">
-        <label for="inf_field_Email">Email *</label>
-        <input class="infusion-field-input-container" id="inf_field_Email" name="inf_field_Email" type="text" />
-    </div>
-    <div class="infusion-field">
-        <label for="inf_custom_SchoolDistrict">School</label>
-        <input class="infusion-field-input-container" id="inf_custom_SchoolDistrict" name="inf_custom_SchoolDistrict" type="text" />
-    </div>
-    <div class="infusion-field">
-        <label for="inf_custom_District">District</label>
-        <input class="infusion-field-input-container" id="inf_custom_District" name="inf_custom_District" type="text" />
-    </div>
-    <div class="infusion-submit">
-        <input type="submit" value="Submit" />
-    </div>
-</form>
-<script type="text/javascript" src="https://oc232.infusionsoft.com/app/webTracking/getTrackingCode?trackingId=a6f8988f5c138d860ff8ab155fe694c2"></script>
-<div class="spacer"></div>
-<div class="spacer"></div>
--->
 
 </div>
